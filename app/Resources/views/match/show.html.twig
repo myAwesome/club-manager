@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h3>Match</h3>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ match.id }}</td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>{% if match.date %}{{ match.date|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Player1points</th>
+                <td>{{ match.player1Points }}</td>
+            </tr>
+            <tr>
+                <th>Player2points</th>
+                <td>{{ match.player2Points }}</td>
+            </tr>
+            <tr>
+                <th>Drawround</th>
+                <td>{{ match.drawRound }}</td>
+            </tr>
+            <tr>
+                <th>Drawroundnumber</th>
+                <td>{{ match.drawRoundNumber }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+<a class="btn btn-default" href="{{ path('match_index') }}">Back to the list</a>
+<a class="btn btn-info" href="{{ path('match_edit', { 'id': match.id }) }}">Edit</a>
+{{ form_start(delete_form) }}
+    <input class="btn btn-danger" type="submit" value="Delete">
+{{ form_end(delete_form) }}
+{% endblock %}

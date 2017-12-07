@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h3>Club</h3>
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ club.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ club.name }}</td>
+            </tr>
+        </tbody>
+    </table>
+<div class="btn-group">
+    <a class="btn btn-secondary" href="{{ path('club_index') }}">Back to the list</a>
+<a class="btn btn-info" href="{{ path('club_edit', { 'id': club.id }) }}">Edit</a>
+{{ form_start(delete_form) }}
+    <input class="btn btn-danger" type="submit" value="Delete">
+{{ form_end(delete_form) }}
+</div>
+    <hr>
+
+     {% block champs %}
+    <h3>Club Champs</h3>
+    {% for champ in club.championats  %}
+        <h4><a href="{{ path('championat_show', {'id':champ.id}) }}">{{ champ.name }}</a> <b>{{ champ.startAt|date('d.m.Y') }}</b></h4>
+    {% endfor %}
+
+    {% endblock champs %}
+
+    {% block ranking %}
+        <h3>Club ranking</h3>
+        <table class="table">
+            <tr>
+                <th>Rank</th>
+                <th>Player</th>
+                <th>Points </th>
+                <th>champs played</th>
+
+            </tr>
+        {% for player in ranking  %}
+                <tr>
+                    <td>{{ loop.index }}</td>
+                    <td>{{ player.last_name }} {{ player.first_name }}</td>
+                    <th>{{ player.points }}</th>
+                    <td><i>({{ player.champs_played }})</i></td>
+                </tr>
+        {% endfor %}
+        </table>
+    {% endblock ranking %}
+
+
+{% endblock %}

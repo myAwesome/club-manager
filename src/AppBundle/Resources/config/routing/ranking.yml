@@ -1,0 +1,24 @@
+ranking_index:
+    path:     /
+    defaults: { _controller: "AppBundle:Ranking:index" }
+    methods:  GET
+
+ranking_show:
+    path:     /{id}/show
+    defaults: { _controller: "AppBundle:Ranking:show" }
+    methods:  GET
+
+ranking_new:
+    path:     /new
+    defaults: { _controller: "AppBundle:Ranking:new" }
+    methods:  [GET, POST]
+
+ranking_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AppBundle:Ranking:edit" }
+    methods:  [GET, POST]
+
+ranking_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AppBundle:Ranking:delete" }
+    methods:  DELETE

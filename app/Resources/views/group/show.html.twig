@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h3>Group</h3>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ group.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ group.name }}</td>
+            </tr>
+            <tr>
+                <th>Capacity</th>
+                <td>{{ group.capacity }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+<a class="btn btn-default" href="{{ path('group_index') }}">Back to the list</a>
+<a class="btn btn-info" href="{{ path('group_edit', { 'id': group.id }) }}">Edit</a>
+{{ form_start(delete_form) }}
+    <input class="btn btn-danger" type="submit" value="Delete">
+{{ form_end(delete_form) }}
+{% endblock %}

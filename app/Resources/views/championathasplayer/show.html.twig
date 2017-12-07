@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h3>Championathasplayer</h3>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ championatHasPlayer.id }}</td>
+            </tr>
+            <tr>
+                <th>Place</th>
+                <td>{{ championatHasPlayer.place }}</td>
+            </tr>
+            <tr>
+                <th>Points</th>
+                <td>{{ championatHasPlayer.points }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+<a class="btn btn-default" href="{{ path('championathasplayer_index') }}">Back to the list</a>
+<a class="btn btn-info" href="{{ path('championathasplayer_edit', { 'id': championatHasPlayer.id }) }}">Edit</a>
+{{ form_start(delete_form) }}
+    <input class="btn btn-danger" type="submit" value="Delete">
+{{ form_end(delete_form) }}
+{% endblock %}

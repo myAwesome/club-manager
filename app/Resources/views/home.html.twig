@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <br><br>
+    <a href="{{ path('club_index') }}" class="">club</a><br>
+    <a href="{{ path('championat_index') }}" class="">championat</a><br>
+    <a href="{{ path('championathasplayer_index') }}" class="">championat has player</a><br>
+    <hr>
+    <a href="{{ path('group_index') }}" class="">group</a><br>
+    <a href="{{ path('draw_index') }}" class="">draw</a><br>
+    <hr>
+    <a href="{{ path('player_index') }}" class="">player</a><br>
+{% endblock %}

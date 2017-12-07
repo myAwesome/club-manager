@@ -1,0 +1,24 @@
+match_index:
+    path:     /
+    defaults: { _controller: "AppBundle:Match:index" }
+    methods:  GET
+
+match_show:
+    path:     /{id}/show
+    defaults: { _controller: "AppBundle:Match:show" }
+    methods:  GET
+
+match_new:
+    path:     /new
+    defaults: { _controller: "AppBundle:Match:new" }
+    methods:  [GET, POST]
+
+match_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AppBundle:Match:edit" }
+    methods:  [GET, POST]
+
+match_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AppBundle:Match:delete" }
+    methods:  DELETE

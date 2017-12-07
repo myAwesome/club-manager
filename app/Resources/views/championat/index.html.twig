@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h3>Championats</h3>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Startat</th>
+                <th>Endat</th>
+                <th>Description</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for championat in championats %}
+            <tr>
+                <td><a class="btn btn-link" href="{{ path('championat_show', { 'id': championat.id }) }}">{{ championat.id }}</a></td>
+                <td>{{ championat.name }}</td>
+                <td>{{ championat.type }}</td>
+                <td>{% if championat.startAt %}{{ championat.startAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if championat.endAt %}{{ championat.endAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ championat.description }}</td>
+                <td>                        <a class="btn btn-info" href="{{ path('championat_show', { 'id': championat.id }) }}">show</a>                        <a class="btn btn-info" href="{{ path('championat_edit', { 'id': championat.id }) }}">edit</a>                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a class="btn btn-success" href="{{ path('championat_new') }}">Create a new championat</a>
+{% endblock %}

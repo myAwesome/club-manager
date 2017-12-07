@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h3>New Club</h3>
+
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <input class="btn btn-success" type="submit" value="Create" />
+    {{ form_end(form) }}
+
+<a class="btn btn-default" href="{{ path('club_index') }}">Back to the list</a>
+{% endblock %}

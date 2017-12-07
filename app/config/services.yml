@@ -1,0 +1,17 @@
+# Learn more about services, parameters and containers at
+# https://symfony.com/doc/current/service_container.html
+parameters:
+    #parameter_name: value
+
+services:
+    draw_creator:
+        class: '%draw_creator_class%'
+        arguments: ['@doctrine.orm.entity_manager']
+
+    group_creator:
+        class: AppBundle\Service\GroupCreator
+        arguments: ['@doctrine.orm.entity_manager']
+
+    ranking_builder:
+        class: AppBundle\Service\RankingBuilder
+        arguments: ['@doctrine.orm.entity_manager']

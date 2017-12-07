@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <h3>{{ 'Players'|lower }}</h3>
+
+
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Forehand</th>
+                <th>Backhand</th>
+                <th>Level</th>
+                <th>Birthday</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for player in players %}
+            <tr>
+                <td><a class="btn btn-link" href="{{ path('player_show', { 'id': player.id }) }}">{{ player.id }}</a></td>
+                <td>{{ player.firstName }}</td>
+                <td>{{ player.lastName }}</td>
+                <td>{{ player.forehand }}</td>
+                <td>{{ player.backhand }}</td>
+                <td>{{ player.level }}</td>
+                <td>{% if player.birthday %}{{ player.birthday|date('Y-m-D') }}{% endif %}</td>
+                <td>                        <a class="btn btn-info" href="{{ path('player_show', { 'id': player.id }) }}">show</a>
+                    <a class="btn btn-info" href="{{ path('player_edit', { 'id': player.id }) }}">edit</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a class="btn btn-success" href="{{ path('player_new') }}">Create a new player</a>
+{% endblock %}

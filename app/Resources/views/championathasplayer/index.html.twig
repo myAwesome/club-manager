@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h3>Championathasplayers</h3>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Player</th>
+                <th>Champ</th>
+                <th>Place</th>
+                <th>Points</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for championatHasPlayer in championatHasPlayers %}
+            <tr>
+                <td><a class="btn btn-sm btn-light" href="{{ path('championathasplayer_show', { 'id': championatHasPlayer.id }) }}">
+                        {{ championatHasPlayer.player.lastName }} {{ championatHasPlayer.player.firstName }}
+                    </a></td>
+                <td>{{ championatHasPlayer.championat.name }}</td>
+                <td>{{ championatHasPlayer.place }}</td>
+                <td>{{ championatHasPlayer.points }}</td>
+                <td>                        <a class="btn btn-sm btn-info" href="{{ path('championathasplayer_show', { 'id': championatHasPlayer.id }) }}">show</a>                        <a class="btn btn-sm btn-info" href="{{ path('championathasplayer_edit', { 'id': championatHasPlayer.id }) }}">edit</a>                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a class="btn btn-sm btn-success" href="{{ path('championathasplayer_new') }}">Create a new championatHasPlayer</a>
+{% endblock %}

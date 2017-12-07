@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h3>Ranking</h3>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ ranking.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ ranking.name }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+<a class="btn btn-default" href="{{ path('ranking_index') }}">Back to the list</a>
+<a class="btn btn-info" href="{{ path('ranking_edit', { 'id': ranking.id }) }}">Edit</a>
+{{ form_start(delete_form) }}
+    <input class="btn btn-danger" type="submit" value="Delete">
+{{ form_end(delete_form) }}
+{% endblock %}

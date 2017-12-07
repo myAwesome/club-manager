@@ -1,0 +1,31 @@
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation
+graphql:
+    resource: "@GraphQLBundle/Controller/"
+app_club:
+    resource: "@AppBundle/Resources/config/routing/club.yml"
+    prefix:   /club
+app_championat:
+    resource: "@AppBundle/Resources/config/routing/championat.yml"
+    prefix:   /championat
+app_championathasplayer:
+    resource: "@AppBundle/Resources/config/routing/championathasplayer.yml"
+    prefix:   /championathasplayer
+app_group:
+    resource: "@AppBundle/Resources/config/routing/group.yml"
+    prefix:   /group
+app_draw:
+    resource: "@AppBundle/Resources/config/routing/draw.yml"
+    prefix:   /draw
+app_player:
+    resource: "@AppBundle/Resources/config/routing/player.yml"
+    prefix:   /player
+app_ranking:
+    resource: "@AppBundle/Resources/config/routing/ranking.yml"
+    prefix:   /ranking
+app_match:
+    resource: "@AppBundle/Resources/config/routing/match.yml"
+    prefix:   /match
+
+

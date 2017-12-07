@@ -1,0 +1,17 @@
+{% block extends %}
+{{ "{% extends 'base.html.twig' %}" }}
+{% endblock extends %}
+
+{% block body %}
+{{ "{% block body %}" }}
+    <h3>New {{ entity_singularized|capitalize }}</h3>
+
+    {{ '{{ form_start(form) }}' }}
+        {{ '{{ form_widget(form) }}' }}
+        <input class="btn btn-success" type="submit" value="Create" />
+    {{ '{{ form_end(form) }}' }}
+
+{% set hide_edit, hide_delete = true, true %}
+{{ include('crud/views/others/record_actions.html.twig.twig') -}}
+{{ "{% endblock %}" }}
+{% endblock body %}

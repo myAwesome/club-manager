@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="row">
+        {% for round in rounds %}
+            <div class="col">
+            {% for match in round %}
+                <h3>{{ match }}</h3>
+                <br>
+            {% endfor %}
+
+            </div>
+        {% endfor %}
+    </div>
+{% endblock%}

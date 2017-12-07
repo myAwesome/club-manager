@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h3>Player</h3>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ player.id }}</td>
+            </tr>
+            <tr>
+                <th>Firstname</th>
+                <td>{{ player.firstName }}</td>
+            </tr>
+            <tr>
+                <th>Lastname</th>
+                <td>{{ player.lastName }}</td>
+            </tr>
+            <tr>
+                <th>Forehand</th>
+                <td>{{ player.forehand }}</td>
+            </tr>
+            <tr>
+                <th>Backhand</th>
+                <td>{{ player.backhand }}</td>
+            </tr>
+            <tr>
+                <th>Level</th>
+                <td>{{ player.level }}</td>
+            </tr>
+            <tr>
+                <th>Birthday</th>
+                <td>{% if player.birthday %}{{ player.birthday|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+<a class="btn btn-default" href="{{ path('player_index') }}">Back to the list</a>
+<a class="btn btn-info" href="{{ path('player_edit', { 'id': player.id }) }}">Edit</a>
+{{ form_start(delete_form) }}
+    <input class="btn btn-danger" type="submit" value="Delete">
+{{ form_end(delete_form) }}
+{% endblock %}

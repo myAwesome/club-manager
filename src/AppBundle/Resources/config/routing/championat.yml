@@ -1,0 +1,39 @@
+championat_index:
+    path:     /
+    defaults: { _controller: "AppBundle:Championat:index" }
+    methods:  GET
+
+championat_show:
+    path:     /{id}/show
+    defaults: { _controller: "AppBundle:Championat:show" }
+    methods:  GET
+
+championat_new:
+    path:     /new
+    defaults: { _controller: "AppBundle:Championat:new" }
+    methods:  [GET, POST]
+
+championat_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AppBundle:Championat:edit" }
+    methods:  [GET, POST]
+
+championat_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AppBundle:Championat:delete" }
+    methods:  DELETE
+
+championat_players:
+    path:     /{id}/players
+    defaults: { _controller: "AppBundle:Championat:players" }
+    methods:  GET
+
+championat_groups:
+    path:     /{id}/groups
+    defaults: { _controller: "AppBundle:Championat:groups" }
+    methods:  GET
+
+championat_draws:
+    path:     /{id}/draw
+    defaults: { _controller: "AppBundle:Championat:draw" }
+    methods:  GET

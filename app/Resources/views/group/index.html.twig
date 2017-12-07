@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<h3>Groups</h3>
+
+    {% for group_id,group in groupsMatrix %}
+        <div class="card">
+            <div class="card-header">
+                {{ group_id }}
+            </div>
+            <table class="table table-bordered">
+                <tr>
+                    <th></th>
+                    {% for player_id, player in group %}
+                        <th class="table-info">{{ playersList[player_id].lastname }}</th>
+                {% endfor%}
+                </tr>
+
+
+                {% for player_id, player in group %}
+
+                    <tr>
+                        <th class="table-info">{{ playersList[player_id].lastname }}</th>
+                        {% for result_vs_opponent in player %}
+                            <td class="{% if result_vs_opponent == null %} table-warning{% endif %} text-center">
+                               <b>{{ result_vs_opponent }}</b>
+                            </td>
+                        {% endfor%}
+
+                    </tr>
+                {% endfor%}
+            </table>
+        </div>
+        <br>
+    {% endfor %}
+
+<a class="btn btn-success" href="{{ path('group_new') }}">Create a new group</a>
+{% endblock %}
