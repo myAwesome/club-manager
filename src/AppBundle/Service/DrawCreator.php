@@ -16,11 +16,6 @@ class DrawCreator
     private $em;
 
     /**
-     * @var array
-     */
-    const ROUND_PLAYERS = [2,4,8,16,32,64,128,256];
-
-    /**
      * DrawCreator constructor.
      * @param EntityManager $em
      */
@@ -36,7 +31,7 @@ class DrawCreator
     public function createMatches(Draw $draw)
     {
         $drawSize = $draw->getCapacity();
-        $playersPerRound = self::ROUND_PLAYERS;
+        $playersPerRound = [2,4,8,16,32,64,128,256];
         foreach ($playersPerRound as $players) {
 
             if($drawSize >= $players){

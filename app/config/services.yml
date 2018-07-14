@@ -5,7 +5,7 @@ parameters:
 
 services:
     draw_creator:
-        class: '%draw_creator_class%'
+        class: AppBundle\Service\DrawCreator
         arguments: ['@doctrine.orm.entity_manager']
 
     group_creator:
