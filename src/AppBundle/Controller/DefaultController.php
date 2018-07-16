@@ -14,9 +14,11 @@ class DefaultController extends Controller
     /**
      * @Route("/sandbox/{ranking}", name="sandbox")
      */
-    public function sandboxAction(Group $ranking)
+    public function sandboxAction(Ranking $ranking)
     {
-        var_dump(__LINE__);die;
+        $res = $this->get('ranking_builder')->build($ranking);
+        return $this->render('::ranking.html.twig', ['players' => $res]);
+
     }
 
 

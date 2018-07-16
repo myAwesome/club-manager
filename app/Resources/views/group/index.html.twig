@@ -3,29 +3,30 @@
 {% block body %}
 <h3>Groups</h3>
 
-    {% for group_id,group in groupsMatrix %}
+    {% for group in groups %}
+
         <div class="card">
             <div class="card-header">
-                {{ group_id }}
+                {{ group.name }}
             </div>
             <table class="table table-bordered">
                 <tr>
                     <th></th>
-                    {% for player_id, player in group %}
-                        <th class="table-info">{{ playersList[player_id].lastname }}</th>
-                {% endfor%}
+                    {% for player in group.players %}
+                        <th class="table-info">{{ player.lastname }}</th>
+                    {% endfor%}
                 </tr>
 
 
-                {% for player_id, player in group %}
+                {% for player in group.players %}
 
                     <tr>
-                        <th class="table-info">{{ playersList[player_id].lastname }}</th>
-                        {% for result_vs_opponent in player %}
-                            <td class="{% if result_vs_opponent == null %} table-warning{% endif %} text-center">
-                               <b>{{ result_vs_opponent }}</b>
-                            </td>
-                        {% endfor%}
+                        <th class="table-info">{{ player.lastname }}</th>
+                        {#{% for result_vs_opponent in player %}#}
+                            {#<td class="{% if result_vs_opponent == null %} table-warning{% endif %} text-center">#}
+                               {#<b>{{ result_vs_opponent }}</b>#}
+                            {#</td>#}
+                        {#{% endfor%}#}
 
                     </tr>
                 {% endfor%}

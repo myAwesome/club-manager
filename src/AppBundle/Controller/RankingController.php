@@ -5,6 +5,7 @@ namespace AppBundle\Controller;
 use AppBundle\Entity\Ranking;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Routing\Annotation\Route;
 
 /**
  * Ranking controller.
@@ -12,6 +13,16 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class RankingController extends Controller
 {
+
+    /**
+     * @Route("/ranking/build/{ranking}", name="ranking_build")
+     */
+    public function rankAction(Ranking $ranking)
+    {
+        $res = $this->get('ranking_builder')->build($ranking);
+        return $this->render('::ranking.html.twig', ['players' => $res]);
+    }
+    
     /**
      * Lists all ranking entities.
      *

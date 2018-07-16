@@ -32,7 +32,7 @@ class RankingBuilder
                 sum(cp.points) as points,
                 count(c.id) as champs_played
             FROM 
-                club_manager.player p
+                champ.player p
             join championat_player cp on cp.player_id = p.id 
             join championat c on c.id = cp.championat_id
             where c.ranking_id = 1

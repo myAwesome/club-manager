@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <table class="table">
+        <tr>
+            <td>N</td>
+            <td>Name</td>
+            <td>Points</td>
+            <td>champs_played</td>
+        </tr>
+        {% for player in players %}
+            <tr>
+                <td>{{ loop.index }}</td>
+                <td>{{ player.last_name }}</td>
+                <td>{{ player.points }}</td>
+                <td>{{ player.champs_played }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

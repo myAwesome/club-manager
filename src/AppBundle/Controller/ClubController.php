@@ -38,7 +38,6 @@ class ClubController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            dump($club); die;
             $em = $this->getDoctrine()->getManager();
             $em->persist($club);
             $em->flush();

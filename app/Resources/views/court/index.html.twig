@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h3>Courts</h3>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Address</th>
+                <th>Location</th>
+                <th>Surface</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for court in courts %}
+            <tr>
+                <td><a class="btn btn-link" href="{{ path('court_show', { 'id': court.id }) }}">{{ court.id }}</a></td>
+                <td>{{ court.name }}</td>
+                <td>{{ court.address }}</td>
+                <td>{{ court.location }}</td>
+                <td>{{ court.surface }}</td>
+                <td>                        <a class="btn btn-info" href="{{ path('court_show', { 'id': court.id }) }}">show</a>                        <a class="btn btn-info" href="{{ path('court_edit', { 'id': court.id }) }}">edit</a>                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a class="btn btn-success" href="{{ path('court_new') }}">Create a new court</a>
+{% endblock %}

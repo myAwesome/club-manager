@@ -21,7 +21,7 @@ class GroupController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $groups = $em->getRepository('AppBundle:Group')->findAll();
-
+//dump($groups[0]); die;
         return $this->render('group/index.html.twig', array(
             'groups' => $groups,
         ));
