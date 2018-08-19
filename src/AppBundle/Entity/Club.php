@@ -4,6 +4,7 @@ namespace AppBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use GetSetGo\SetterGetter;
 
 /**
  * Club
@@ -13,6 +14,9 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Club
 {
+    use SetterGetter;
+
+
     /**
      * @var integer
      *
@@ -57,79 +61,6 @@ class Club
     {
         return $this->id;
     }
-
-    /**
-     * @param int $id
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-    }
-
-    /**
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    /**
-     * @param string $name
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-    }
-
-    /**
-     * @return City
-     */
-    public function getCity()
-    {
-        return $this->city;
-    }
-
-    /**
-     * @param City $city
-     */
-    public function setCity($city)
-    {
-        $this->city = $city;
-    }
-
-    /**
-     * @return ArrayCollection
-     */
-    public function getChampionats()
-    {
-        return $this->championats;
-    }
-
-    /**
-     * @param ArrayCollection $championats
-     */
-    public function setChampionats($championats)
-    {
-        $this->championats = $championats;
-    }
-
-    /**
-     * @return ArrayCollection
-     */
-    public function getRankings()
-    {
-        return $this->rankings;
-    }
-
-    /**
-     * @param ArrayCollection $rankings
-     */
-    public function setRankings($rankings)
-    {
-        $this->rankings = $rankings;
-    }
-
 
     public function __toString()
     {

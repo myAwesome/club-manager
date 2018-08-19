@@ -19,12 +19,15 @@
         {% for championat in championats %}
             <tr>
                 <td><a class="btn btn-link" href="{{ path('championat_show', { 'id': championat.id }) }}">{{ championat.id }}</a></td>
-                <td>{{ championat.name }}</td>
-                <td>{{ championat.type }}</td>
-                <td>{% if championat.startAt %}{{ championat.startAt|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>{% if championat.endAt %}{{ championat.endAt|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>{{ championat.description }}</td>
-                <td>                        <a class="btn btn-info" href="{{ path('championat_show', { 'id': championat.id }) }}">show</a>                        <a class="btn btn-info" href="{{ path('championat_edit', { 'id': championat.id }) }}">edit</a>                </td>
+                <td>{{ championat.getName }}</td>
+                <td>{{ championat.getType }}</td>
+                <td>{% if championat.getStartAt %}{{ championat.getStartAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if championat.getEndAt %}{{ championat.getEndAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ championat.getDescription }}</td>
+                <td>
+                    <a class="btn btn-info" href="{{ path('championat_show', { 'id': championat.id }) }}">show</a>
+                    <a class="btn btn-info" href="{{ path('championat_edit', { 'id': championat.id }) }}">edit</a>
+                </td>
             </tr>
         {% endfor %}
         </tbody>

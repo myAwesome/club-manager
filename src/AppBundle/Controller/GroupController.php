@@ -3,6 +3,7 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Group;
+use AppBundle\Entity\Match;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -21,7 +22,6 @@ class GroupController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $groups = $em->getRepository('AppBundle:Group')->findAll();
-//dump($groups[0]); die;
         return $this->render('group/index.html.twig', array(
             'groups' => $groups,
         ));
@@ -53,14 +53,36 @@ class GroupController extends Controller
 
     /**
      * Finds and displays a group entity.
-     *
      */
     public function showAction(Group $group)
     {
-        $deleteForm = $this->createDeleteForm($group);
+        $matrix = [];
+        foreach ($group->getPlayers() as $i=>$playerI) {
+            foreach ($group->getPlayers() as $j=>$playerJ) {
+                if ($i == $j){
+                    $matrix[$i][$j] = 'X';
+                } else {
+                    foreach ($group->getMatches() as $match){
+                        if (
+                            in_array($match->getPlayer1()->getId(), [$playerI->getId(), $playerJ->getId()]) &&
+                            in_array($match->getPlayer2()->getId(), [$playerI->getId(), $playerJ->getId()])
+                        ){
+                            if ($match->getPlayer1()->getId() == $playerI->getId()){
+                                $matrix[$i][$j] = $match->getPlayer1Points() .'/'. $match->getPlayer2Points();
+                            } else {
+                                $matrix[$i][$j] = $match->getPlayer2Points() .'/'. $match->getPlayer1Points();
+                            }
+                        }
+                    }
+                }
+            }
+        }
 
+
+        $deleteForm = $this->createDeleteForm($group);
         return $this->render('group/show.html.twig', array(
             'group' => $group,
+            'matrix' =>$matrix,
             'delete_form' => $deleteForm->createView(),
         ));
     }

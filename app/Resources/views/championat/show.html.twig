@@ -7,33 +7,33 @@
         <tbody>
             <tr>
                 <th>Id</th>
-                <td>{{ championat.id }}</td>
+                <td>{{ championat.getid }}</td>
             </tr>
             <tr>
                 <th>Name</th>
-                <td>{{ championat.name }}</td>
+                <td>{{ championat.getname }}</td>
             </tr>
             <tr>
                 <th>Type</th>
-                <td>{{ championat.type }}</td>
+                <td>{{ championat.gettype }}</td>
             </tr>
             <tr>
                 <th>Startat</th>
-                <td>{% if championat.startAt %}{{ championat.startAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if championat.getstartAt %}{{ championat.getstartAt|date('Y-m-d H:i:s') }}{% endif %}</td>
             </tr>
             <tr>
                 <th>Endat</th>
-                <td>{% if championat.endAt %}{{ championat.endAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if championat.getendAt %}{{ championat.getendAt|date('Y-m-d H:i:s') }}{% endif %}</td>
             </tr>
             <tr>
                 <th>Description</th>
-                <td>{{ championat.description }}</td>
+                <td>{{ championat.getdescription }}</td>
             </tr>
         </tbody>
     </table>
 
 <a class="btn btn-default" href="{{ path('championat_index') }}">Back to the list</a>
-<a class="btn btn-info" href="{{ path('championat_edit', { 'id': championat.id }) }}">Edit</a>
+<a class="btn btn-info" href="{{ path('championat_edit', { 'id': championat.getid }) }}">Edit</a>
 {{ form_start(delete_form) }}
     <input class="btn btn-danger" type="submit" value="Delete">
 {{ form_end(delete_form) }}

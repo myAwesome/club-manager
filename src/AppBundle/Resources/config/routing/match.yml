@@ -3,6 +3,16 @@ match_index:
     defaults: { _controller: "AppBundle:Match:index" }
     methods:  GET
 
+match_by_player:
+    path:     /player/{player}
+    defaults: { _controller: "AppBundle:Match:listByPlayer" }
+    methods:  GET
+
+head_to_head:
+    path:     /h2h/{player1}/{player2}
+    defaults: { _controller: "AppBundle:Match:headToHead" }
+    methods:  GET
+
 match_show:
     path:     /{id}/show
     defaults: { _controller: "AppBundle:Match:show" }

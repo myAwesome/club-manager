@@ -13,7 +13,18 @@ class MatchType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('date')->add('player1Points')->add('player2Points')->add('drawRound')->add('drawRoundNumber')->add('draw')->add('group')->add('player1')->add('player2');
+        $builder
+            ->add('date', null, [
+                'years' => [2009,2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020]
+            ])
+            ->add('player1Points')
+            ->add('player2Points')
+            ->add('drawRound')
+            ->add('drawRoundNumber')
+            ->add('draw')
+            ->add('group')
+            ->add('player1')
+            ->add('player2');
     }
     
     /**

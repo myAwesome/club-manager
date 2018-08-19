@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use GetSetGo\SetterGetter;
 
 /**
  * Court
@@ -12,6 +13,9 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Court
 {
+    use SetterGetter;
+
+
     /**
      * @var integer
      *
@@ -63,95 +67,6 @@ class Court
     {
         return $this->id;
     }
-
-    /**
-     * @param int $id
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-    }
-
-    /**
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    /**
-     * @param string $name
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-    }
-
-    /**
-     * @return string
-     */
-    public function getAddress()
-    {
-        return $this->address;
-    }
-
-    /**
-     * @param string $address
-     */
-    public function setAddress($address)
-    {
-        $this->address = $address;
-    }
-
-    /**
-     * @return string
-     */
-    public function getLocation()
-    {
-        return $this->location;
-    }
-
-    /**
-     * @param string $location
-     */
-    public function setLocation($location)
-    {
-        $this->location = $location;
-    }
-
-    /**
-     * @return string
-     */
-    public function getSurface()
-    {
-        return $this->surface;
-    }
-
-    /**
-     * @param string $surface
-     */
-    public function setSurface($surface)
-    {
-        $this->surface = $surface;
-    }
-
-    /**
-     * @return City
-     */
-    public function getCity()
-    {
-        return $this->city;
-    }
-
-    /**
-     * @param City $city
-     */
-    public function setCity($city)
-    {
-        $this->city = $city;
-    }
-
 
 
     public function __toString()

@@ -4,6 +4,7 @@ namespace AppBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use GetSetGo\SetterGetter;
 
 /**
  * @ORM\Table(name="championat")
@@ -11,6 +12,9 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Championat
 {
+    use SetterGetter;
+
+
     const SINGLE = 'single';
     const DOUBLE = 'double';
 
@@ -93,135 +97,6 @@ class Championat
     {
         return $this->id;
     }
-
-    /**
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    /**
-     * @param string $name
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-    }
-
-    /**
-     * @return string
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
-
-    /**
-     * @param string $type
-     */
-    public function setType($type)
-    {
-        $this->type = $type;
-    }
-
-    /**
-     * @return \DateTime
-     */
-    public function getStartAt()
-    {
-        return $this->startAt;
-    }
-
-    /**
-     * @param \DateTime $startAt
-     */
-    public function setStartAt($startAt)
-    {
-        $this->startAt = $startAt;
-    }
-
-    /**
-     * @return \DateTime
-     */
-    public function getEndAt()
-    {
-        return $this->endAt;
-    }
-
-    /**
-     * @param \DateTime $endAt
-     */
-    public function setEndAt($endAt)
-    {
-        $this->endAt = $endAt;
-    }
-
-    /**
-     * @return string
-     */
-    public function getDescription()
-    {
-        return $this->description;
-    }
-
-    /**
-     * @param string $description
-     */
-    public function setDescription($description)
-    {
-        $this->description = $description;
-    }
-
-    /**
-     * @return Club
-     */
-    public function getClub()
-    {
-        return $this->club;
-    }
-
-    /**
-     * @param Club $club
-     */
-    public function setClub($club)
-    {
-        $this->club = $club;
-    }
-
-    /**
-     * @return Court
-     */
-    public function getCourt()
-    {
-        return $this->court;
-    }
-
-    /**
-     * @param Court $court
-     */
-    public function setCourt($court)
-    {
-        $this->court = $court;
-    }
-
-    /**
-     * @return Ranking
-     */
-    public function getRanking()
-    {
-        return $this->ranking;
-    }
-
-    /**
-     * @param Ranking $ranking
-     */
-    public function setRanking($ranking)
-    {
-        $this->ranking = $ranking;
-    }
-
 
     public function __toString()
     {

@@ -3,6 +3,8 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Match;
+use AppBundle\Entity\Player;
+use Doctrine\ORM\EntityManager;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -27,6 +29,46 @@ class MatchController extends Controller
         ));
     }
 
+    public function listByPlayerAction(Player $player)
+    {
+        /** @var EntityManager $em */
+        $em = $this->getDoctrine()->getManager();
+
+        $matches = $em->getRepository('AppBundle:Match')
+            ->createQueryBuilder('m')
+            ->where('m.player1 = :player')
+            ->orWhere('m.player2 = :player')
+            ->setParameter('player', $player)
+            ->orderBy('m.date', 'desc')
+            ->getQuery()
+            ->getResult();
+
+        return $this->render('match/index.html.twig', array(
+            'matches' => $matches,
+        ));
+    }
+
+    public function headToHeadAction(Player $player1, Player $player2)
+    {
+        /** @var EntityManager $em */
+        $em = $this->getDoctrine()->getManager();
+
+        $matches = $em->getRepository('AppBundle:Match')
+            ->createQueryBuilder('m')
+            ->where('m.player1 = :player1 and m.player2 = :player2')
+            ->orWhere('m.player1 = :player2 and m.player2 = :player1')
+            ->setParameter('player1', $player1)
+            ->setParameter('player2', $player2)
+            ->orderBy('m.date', 'desc')
+            ->getQuery()
+            ->getResult();
+
+        return $this->render('match/index.html.twig', array(
+            'matches' => $matches,
+        ));
+    }
+
+
     /**
      * Creates a new match entity.
      *
@@ -34,6 +76,15 @@ class MatchController extends Controller
     public function newAction(Request $request)
     {
         $match = new Match();
+        $em = $this->getDoctrine()->getManager();
+
+        $p1 = $em->find('AppBundle:Player', 1);
+        $p2 = $em->find('AppBundle:Player', 52);
+
+        $match->setPlayer1($p1);
+        $match->setPlayer2($p2);
+
+        $match->setDate(new \DateTime());
         $form = $this->createForm('AppBundle\Form\MatchType', $match);
         $form->handleRequest($request);
 

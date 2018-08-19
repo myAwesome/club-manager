@@ -5,12 +5,10 @@
         {% for round in rounds %}
             <div class="col">
             {% for match in round %}
-                <h1>
-                    {{ match.player1.lastName }} -  {{ match.player2.lastName }}
-                    {{ match.player1Points }} :  {{ match.player2Points }}
-                </h1>
+                <h3>{{ match }}</h3>
                 <br>
             {% endfor %}
+
             </div>
         {% endfor %}
     </div>

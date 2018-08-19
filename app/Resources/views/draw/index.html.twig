@@ -2,24 +2,10 @@
 
 {% block body %}
     <div class="row">
-        {% for key,round in rounds %}
-            <div class="col">
-                <h3>{{ (key~'round')|trans }}</h3> <br>
-                {% for match in round %}
-                    <table class="table">
-                        <tr>
-                            <td>{{ match.player1}}</td>
-                            <td>{{ match.player1Points }}</td>
-                        </tr>
-                        <tr>
-                            <td>{{ match.player2}}</td>
-                            <td>{{ match.player2Points }}</td>
-                        </tr>
-                    </table>
-                    <br>
-                {% endfor %}
-
+        {% for draw in draws %}
+            <div>
+                {{ draw.id }}
             </div>
-        {% endfor %}
+        {% endfor  %}
     </div>
 {% endblock%}

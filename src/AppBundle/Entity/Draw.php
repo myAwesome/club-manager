@@ -4,6 +4,7 @@ namespace AppBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use GetSetGo\SetterGetter;
 
 /**
  * Draw
@@ -13,6 +14,8 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Draw
 {
+    use SetterGetter;
+
     /**
      * @var integer
      *
@@ -52,61 +55,7 @@ class Draw
         return $this->id;
     }
 
-    /**
-     * @param int $id
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-    }
 
-    /**
-     * @return string
-     */
-    public function getCapacity()
-    {
-        return $this->capacity;
-    }
-
-    /**
-     * @param string $capacity
-     */
-    public function setCapacity($capacity)
-    {
-        $this->capacity = $capacity;
-    }
-
-    /**
-     * @return Championat
-     */
-    public function getChampionat()
-    {
-        return $this->championat;
-    }
-
-    /**
-     * @param Championat $championat
-     */
-    public function setChampionat($championat)
-    {
-        $this->championat = $championat;
-    }
-
-    /**
-     * @return ArrayCollection]
-     */
-    public function getMatches()
-    {
-        return $this->matches;
-    }
-
-    /**
-     * @param Match[] $matches
-     */
-    public function setMatches($matches)
-    {
-        $this->matches = $matches;
-    }
 
     public function  __toString()
     {

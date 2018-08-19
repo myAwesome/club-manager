@@ -1,24 +1,38 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h3>Group</h3>
+    <div class="card">
+        <div class="card-header">
+            {{ group.name }}
+        </div>
+        <table class="table table-bordered">
+            <tr>
+                <th></th>
+                {% for player in group.players %}
+                    <th class="table-info">
+                        {{ player.lastname }}
+                    </th>
+                {% endfor%}
+            </tr>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ group.id }}</td>
-            </tr>
-            <tr>
-                <th>Name</th>
-                <td>{{ group.name }}</td>
-            </tr>
-            <tr>
-                <th>Capacity</th>
-                <td>{{ group.capacity }}</td>
-            </tr>
-        </tbody>
-    </table>
+
+            {% for player in group.players %}
+                <tr>
+                    <th class="table-info"> {{ player.lastname }}
+                        {% set lindex = matrix[loop.index0] %}
+                    </th>
+                    {% for match in lindex %}
+                        <th>
+                            {{ match }}
+                        </th>
+                    {% endfor  %}
+
+                </tr>
+            {% endfor%}
+        </table>
+    </div>
+    <br>
+
 
 <a class="btn btn-default" href="{{ path('group_index') }}">Back to the list</a>
 <a class="btn btn-info" href="{{ path('group_edit', { 'id': group.id }) }}">Edit</a>

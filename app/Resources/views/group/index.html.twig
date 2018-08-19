@@ -7,27 +7,14 @@
 
         <div class="card">
             <div class="card-header">
-                {{ group.name }}
+                <a href="{{ path('group_show', {'id':group.id }) }}">
+                    {{ group.name }}
+                </a>
             </div>
             <table class="table table-bordered">
-                <tr>
-                    <th></th>
-                    {% for player in group.players %}
-                        <th class="table-info">{{ player.lastname }}</th>
-                    {% endfor%}
-                </tr>
-
-
                 {% for player in group.players %}
-
                     <tr>
                         <th class="table-info">{{ player.lastname }}</th>
-                        {#{% for result_vs_opponent in player %}#}
-                            {#<td class="{% if result_vs_opponent == null %} table-warning{% endif %} text-center">#}
-                               {#<b>{{ result_vs_opponent }}</b>#}
-                            {#</td>#}
-                        {#{% endfor%}#}
-
                     </tr>
                 {% endfor%}
             </table>

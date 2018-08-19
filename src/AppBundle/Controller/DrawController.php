@@ -3,8 +3,15 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Draw;
+use AppBundle\Entity\Match;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+
+
+use Symfony\Component\Serializer\Serializer;
+use Symfony\Component\Serializer\Encoder\XmlEncoder;
+use Symfony\Component\Serializer\Encoder\JsonEncoder;
+use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 
 /**
  * Draw controller.
@@ -19,9 +26,7 @@ class DrawController extends Controller
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
-
         $draws = $em->getRepository('AppBundle:Draw')->findAll();
-
         return $this->render('draw/index.html.twig', array(
             'draws' => $draws,
         ));
@@ -57,6 +62,18 @@ class DrawController extends Controller
      */
     public function showAction(Draw $draw)
     {
+
+        $matrix = [];
+        foreach ($draw->getMatches() as $match) {
+            /** @var Match $match */
+            $matrix[$match->getDrawRound()][$match->getDrawRoundNumber()] = $match;
+        }
+        arsort($matrix);
+
+        return $this->render('::draw.html.twig',
+            [ 'rounds'=> $matrix, 'count_rounds' => count($matrix) ]
+        );
+
         $deleteForm = $this->createDeleteForm($draw);
 
         return $this->render('draw/show.html.twig', array(

@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use GetSetGo\SetterGetter;
 
 /**
  * @ORM\Table(name="championat_player")
@@ -10,6 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class ChampionatHasPlayer
 {
+    use SetterGetter;
 
     /**
      * @var integer
@@ -53,77 +55,6 @@ class ChampionatHasPlayer
         return $this->id;
     }
 
-    /**
-     * @param int $id
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-    }
-
-    /**
-     * @return Championat
-     */
-    public function getChampionat()
-    {
-        return $this->championat;
-    }
-
-    /**
-     * @param Championat $championat
-     */
-    public function setChampionat($championat)
-    {
-        $this->championat = $championat;
-    }
-
-    /**
-     * @return Player
-     */
-    public function getPlayer()
-    {
-        return $this->player;
-    }
-
-    /**
-     * @param Player $player
-     */
-    public function setPlayer($player)
-    {
-        $this->player = $player;
-    }
-
-    /**
-     * @return int
-     */
-    public function getPlace()
-    {
-        return $this->place;
-    }
-
-    /**
-     * @param int $place
-     */
-    public function setPlace($place)
-    {
-        $this->place = $place;
-    }
-
-    /**
-     * @return int
-     */
-    public function getPoints()
-    {
-        return $this->points;
-    }
-
-    /**
-     * @param int $points
-     */
-    public function setPoints($points)
-    {
-        $this->points = $points;
-    }
 
 }
 

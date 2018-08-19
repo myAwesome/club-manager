@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use GetSetGo\SetterGetter;
 
 /**
  * City
@@ -12,6 +13,8 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class City
 {
+    use SetterGetter;
+
     /**
      * @var integer
      *
@@ -26,45 +29,18 @@ class City
      *
      * @ORM\Column(name="name", type="string", length=45, nullable=false)
      */
-    private $name;
+    public $name;
 
-    /**
-     * @return int
-     */
+
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * @param int $id
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-    }
-
-    /**
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    /**
-     * @param string $name
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
     }
 
     public function __toString()
     {
         return $this->name;
     }
-
 
 }
 

@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use GetSetGo\SetterGetter;
 
 /**
  * Ranking
@@ -12,6 +13,8 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Ranking
 {
+    use SetterGetter;
+
     /**
      * @var integer
      *
@@ -41,38 +44,6 @@ class Ranking
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    /**
-     * @param string $name
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-    }
-
-    /**
-     * @return Club
-     */
-    public function getClub()
-    {
-        return $this->club;
-    }
-
-    /**
-     * @param Club $club
-     */
-    public function setClub($club)
-    {
-        $this->club = $club;
     }
 
     public function __toString()

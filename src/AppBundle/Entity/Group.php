@@ -4,6 +4,7 @@ namespace AppBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use GetSetGo\SetterGetter;
 
 /**
  * Group
@@ -13,6 +14,9 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Group
 {
+    use SetterGetter;
+
+
     /**
      * @var integer
      *
@@ -72,79 +76,7 @@ class Group
         return $this->id;
     }
 
-    /**
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
 
-    /**
-     * @param string $name
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-    }
-
-    /**
-     * @return string
-     */
-    public function getCapacity()
-    {
-        return $this->capacity;
-    }
-
-    /**
-     * @param string $capacity
-     */
-    public function setCapacity($capacity)
-    {
-        $this->capacity = $capacity;
-    }
-
-    /**
-     * @return Championat
-     */
-    public function getChampionat()
-    {
-        return $this->championat;
-    }
-
-    /**
-     * @param Championat $championat
-     */
-    public function setChampionat($championat)
-    {
-        $this->championat = $championat;
-    }
-
-    public function getPlayers()
-    {
-        return $this->players;
-    }
-
-    public function setPlayers($players)
-    {
-        $this->players = $players;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getMatches()
-    {
-        return $this->matches;
-    }
-
-    /**
-     * @param mixed $matches
-     */
-    public function setMatches($matches)
-    {
-        $this->matches = $matches;
-    }
 
     public function __toString()
     {
