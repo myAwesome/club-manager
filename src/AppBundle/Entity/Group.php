@@ -83,6 +83,97 @@ class Group
         return $this->name;
     }
 
+    /**
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * @param string $name
+     * @return Group
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCapacity()
+    {
+        return $this->capacity;
+    }
+
+    /**
+     * @param string $capacity
+     * @return Group
+     */
+    public function setCapacity($capacity)
+    {
+        $this->capacity = $capacity;
+        return $this;
+    }
+
+    /**
+     * @return Championat
+     */
+    public function getChampionat()
+    {
+        return $this->championat;
+    }
+
+    /**
+     * @param Championat $championat
+     * @return Group
+     */
+    public function setChampionat($championat)
+    {
+        $this->championat = $championat;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPlayers()
+    {
+        return $this->players;
+    }
+
+    /**
+     * @param mixed $players
+     * @return Group
+     */
+    public function setPlayers($players)
+    {
+        $this->players = $players;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getMatches()
+    {
+        return $this->matches;
+    }
+
+    /**
+     * @param mixed $matches
+     * @return Group
+     */
+    public function setMatches($matches)
+    {
+        $this->matches = $matches;
+        return $this;
+    }
+
+
 
 }
 

@@ -22,35 +22,49 @@
 {{ form_end(delete_form) }}
 </div>
     <hr>
+    <div class="row">
+        <div class="col-sm-6">
+            {% block champs %}
+                <h3>Champs </h3>
+                <a class="btn btn-info" href="{{ path('championat_new') }}">Create</a>
 
-     {% block champs %}
-    <h3>Club Champs</h3>
-    {% for champ in club.championats  %}
-        <h4><a href="{{ path('championat_show', {'id':champ.id}) }}">{{ champ.name }}</a> <b>{{ champ.startAt|date('d.m.Y') }}</b></h4>
-    {% endfor %}
+                <hr>
+                <h4>Archive</h4>
+                {% for champ in club.championats  %}
+                    <h4><a href="{{ path('championat_show', {'id':champ.id}) }}">{{ champ.name }}</a> <b>{{ champ.startAt|date('d.m.Y') }}</b></h4>
+                {% endfor %}
+                <br>
+            {% endblock champs %}
+        </div>
+        <div class="col-sm-6">
+            {% block ranking %}
+                <h3>Club ranking</h3>
+                <table class="table">
+                    <tr>
+                        <th>Rank</th>
+                        <th>Player</th>
+                        <th>Points </th>
+                        <th>champs played</th>
 
-    {% endblock champs %}
+                    </tr>
+                    {% for player in ranking  %}
+                        <tr>
+                            <td>{{ loop.index }}</td>
+                            <td>{{ player.last_name }} {{ player.first_name }}</td>
+                            <th>{{ player.points }}</th>
+                            <td><i>({{ player.champs_played }})</i></td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            {% endblock ranking %}
+        </div>
+    </div>
+    <br>
+    <br>
 
-    {% block ranking %}
-        <h3>Club ranking</h3>
-        <table class="table">
-            <tr>
-                <th>Rank</th>
-                <th>Player</th>
-                <th>Points </th>
-                <th>champs played</th>
 
-            </tr>
-        {% for player in ranking  %}
-                <tr>
-                    <td>{{ loop.index }}</td>
-                    <td>{{ player.last_name }} {{ player.first_name }}</td>
-                    <th>{{ player.points }}</th>
-                    <td><i>({{ player.champs_played }})</i></td>
-                </tr>
-        {% endfor %}
-        </table>
-    {% endblock ranking %}
+
+
 
 
 {% endblock %}

@@ -23,7 +23,7 @@ class DefaultController extends Controller
 
 
     /**
-     * @Route("/home", name="home")
+     * @Route("/", name="index")
      */
     public function homeAction()
     {
@@ -31,12 +31,11 @@ class DefaultController extends Controller
     }
 
 
-    /**
-     * @Route("/", name="homepage")
-     */
-    public function indexAction(Request $request)
-    {
- 
+//    /**
+//     * @Route("/", name="homepage")
+//     */
+//    public function _indexAction(Request $request)
+//    {
 //        $em = $this->get('doctrine.orm.entity_manager');
 //
 //        $repo = $em->getRepository('AppBundle:Match');
@@ -48,17 +47,17 @@ class DefaultController extends Controller
 //            ->setParameter('dr', 1)
 //            ->getQuery()
 //            ->getResult();
-
-
-        return $this->render('::draw.html.twig',
-            [
-                'rounds'   => [
-                    ['6-3', '6-3', '6-3', '6-3'],
-                    ['6-1', '6-4'],
-                    ['6-2']
-                ]
-            ]);
-    }
+//
+//
+//        return $this->render('::draw.html.twig',
+//            [
+//                'rounds'   => [
+//                    ['6-3', '6-3', '6-3', '6-3'],
+//                    ['6-1', '6-4'],
+//                    ['6-2']
+//                ]
+//            ]);
+//    }
 
     private function draw_mathes()
     {

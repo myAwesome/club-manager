@@ -14,8 +14,6 @@ use GetSetGo\SetterGetter;
  */
 class Draw
 {
-    use SetterGetter;
-
     /**
      * @var integer
      *
@@ -61,6 +59,61 @@ class Draw
     {
         return (string) $this->id;
     }
+
+    /**
+     * @return string
+     */
+    public function getCapacity()
+    {
+        return $this->capacity;
+    }
+
+    /**
+     * @param string $capacity
+     * @return Draw
+     */
+    public function setCapacity($capacity)
+    {
+        $this->capacity = $capacity;
+        return $this;
+    }
+
+    /**
+     * @return Championat
+     */
+    public function getChampionat()
+    {
+        return $this->championat;
+    }
+
+    /**
+     * @param Championat $championat
+     * @return Draw
+     */
+    public function setChampionat($championat)
+    {
+        $this->championat = $championat;
+        return $this;
+    }
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getMatches()
+    {
+        return $this->matches;
+    }
+
+    /**
+     * @param ArrayCollection $matches
+     * @return Draw
+     */
+    public function setMatches($matches)
+    {
+        $this->matches = $matches;
+        return $this;
+    }
+
 
 
 }

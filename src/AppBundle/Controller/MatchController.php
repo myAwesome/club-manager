@@ -35,13 +35,8 @@ class MatchController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $matches = $em->getRepository('AppBundle:Match')
-            ->createQueryBuilder('m')
-            ->where('m.player1 = :player')
-            ->orWhere('m.player2 = :player')
-            ->setParameter('player', $player)
-            ->orderBy('m.date', 'desc')
-            ->getQuery()
-            ->getResult();
+            ->byPlayer($player);
+
 
         return $this->render('match/index.html.twig', array(
             'matches' => $matches,
@@ -53,15 +48,8 @@ class MatchController extends Controller
         /** @var EntityManager $em */
         $em = $this->getDoctrine()->getManager();
 
-        $matches = $em->getRepository('AppBundle:Match')
-            ->createQueryBuilder('m')
-            ->where('m.player1 = :player1 and m.player2 = :player2')
-            ->orWhere('m.player1 = :player2 and m.player2 = :player1')
-            ->setParameter('player1', $player1)
-            ->setParameter('player2', $player2)
-            ->orderBy('m.date', 'desc')
-            ->getQuery()
-            ->getResult();
+        $matches = $em->getRepository('AppBundle:Match')->headTohead($player1, $player2);
+
 
         return $this->render('match/index.html.twig', array(
             'matches' => $matches,
@@ -79,10 +67,8 @@ class MatchController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $p1 = $em->find('AppBundle:Player', 1);
-        $p2 = $em->find('AppBundle:Player', 52);
 
         $match->setPlayer1($p1);
-        $match->setPlayer2($p2);
 
         $match->setDate(new \DateTime());
         $form = $this->createForm('AppBundle\Form\MatchType', $match);

@@ -13,8 +13,6 @@ use GetSetGo\SetterGetter;
  */
 class City
 {
-    use SetterGetter;
-
     /**
      * @var integer
      *
@@ -41,6 +39,26 @@ class City
     {
         return $this->name;
     }
+
+    /**
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * @param string $name
+     * @return City
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+        return $this;
+    }
+
+
 
 }
 

@@ -1,8 +1,7 @@
 app:
     resource: '@AppBundle/Controller/'
     type: annotation
-graphql:
-    resource: "@GraphQLBundle/Controller/"
+
 app_club:
     resource: "@AppBundle/Resources/config/routing/club.yml"
     prefix:   /club

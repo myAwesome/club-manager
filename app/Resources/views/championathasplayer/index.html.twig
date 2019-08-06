@@ -16,13 +16,13 @@
         <tbody>
         {% for championatHasPlayer in championatHasPlayers %}
             <tr>
-                <td><a class="btn btn-sm btn-light" href="{{ path('championathasplayer_show', { 'id': championatHasPlayer.id }) }}">
-                        {{ championatHasPlayer.player.lastName }} {{ championatHasPlayer.player.firstName }}
+                <td><a class="btn btn-sm btn-light" href="{{ path('championathasplayer_show', { 'id': championatHasPlayer.getid }) }}">
+                        {{ championatHasPlayer.getplayer.lastName }} {{ championatHasPlayer.getplayer.firstName }}
                     </a></td>
-                <td>{{ championatHasPlayer.championat.name }}</td>
-                <td>{{ championatHasPlayer.place }}</td>
-                <td>{{ championatHasPlayer.points }}</td>
-                <td>                        <a class="btn btn-sm btn-info" href="{{ path('championathasplayer_show', { 'id': championatHasPlayer.id }) }}">show</a>                        <a class="btn btn-sm btn-info" href="{{ path('championathasplayer_edit', { 'id': championatHasPlayer.id }) }}">edit</a>                </td>
+                <td>{{ championatHasPlayer.getchampionat.name }}</td>
+                <td>{{ championatHasPlayer.getplace }}</td>
+                <td>{{ championatHasPlayer.getpoints }}</td>
+                <td>                        <a class="btn btn-sm btn-info" href="{{ path('championathasplayer_show', { 'id': championatHasPlayer.getid }) }}">show</a>                        <a class="btn btn-sm btn-info" href="{{ path('championathasplayer_edit', { 'id': championatHasPlayer.getid }) }}">edit</a>                </td>
             </tr>
         {% endfor %}
         </tbody>

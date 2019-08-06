@@ -11,7 +11,6 @@ use GetSetGo\SetterGetter;
  */
 class ChampionatHasPlayer
 {
-    use SetterGetter;
 
     /**
      * @var integer
@@ -54,6 +53,79 @@ class ChampionatHasPlayer
     {
         return $this->id;
     }
+
+    /**
+     * @return Championat
+     */
+    public function getChampionat()
+    {
+        return $this->championat;
+    }
+
+    /**
+     * @param Championat $championat
+     * @return ChampionatHasPlayer
+     */
+    public function setChampionat($championat)
+    {
+        $this->championat = $championat;
+        return $this;
+    }
+
+    /**
+     * @return Player
+     */
+    public function getPlayer()
+    {
+        return $this->player;
+    }
+
+    /**
+     * @param Player $player
+     * @return ChampionatHasPlayer
+     */
+    public function setPlayer($player)
+    {
+        $this->player = $player;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getPlace()
+    {
+        return $this->place;
+    }
+
+    /**
+     * @param int $place
+     * @return ChampionatHasPlayer
+     */
+    public function setPlace($place)
+    {
+        $this->place = $place;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getPoints()
+    {
+        return $this->points;
+    }
+
+    /**
+     * @param int $points
+     * @return ChampionatHasPlayer
+     */
+    public function setPoints($points)
+    {
+        $this->points = $points;
+        return $this;
+    }
+
 
 
 }

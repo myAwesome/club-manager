@@ -15,7 +15,7 @@
         {% for city in cities %}
             <tr>
                 <td><a class="btn btn-link" href="{{ path('city_show', { 'id': city.id }) }}">{{ city.id }}</a></td>
-                <td>{{ city.name }}</td>
+                <td>{{ city.getname }}</td>
                 <td>                        <a class="btn btn-info" href="{{ path('city_show', { 'id': city.id }) }}">show</a>                        <a class="btn btn-info" href="{{ path('city_edit', { 'id': city.id }) }}">edit</a>                </td>
             </tr>
         {% endfor %}

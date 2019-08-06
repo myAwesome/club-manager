@@ -14,9 +14,6 @@ use GetSetGo\SetterGetter;
  */
 class Club
 {
-    use SetterGetter;
-
-
     /**
      * @var integer
      *
@@ -54,6 +51,12 @@ class Club
     private $rankings;
 
 
+
+    public function __toString()
+    {
+        return $this->name;
+    }
+
     /**
      * @return int
      */
@@ -62,10 +65,80 @@ class Club
         return $this->id;
     }
 
-    public function __toString()
+
+    /**
+     * @return string
+     */
+    public function getName()
     {
         return $this->name;
     }
+
+    /**
+     * @param string $name
+     * @return Club
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+        return $this;
+    }
+
+    /**
+     * @return City
+     */
+    public function getCity()
+    {
+        return $this->city;
+    }
+
+    /**
+     * @param City $city
+     * @return Club
+     */
+    public function setCity($city)
+    {
+        $this->city = $city;
+        return $this;
+    }
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getChampionats()
+    {
+        return $this->championats;
+    }
+
+    /**
+     * @param ArrayCollection $championats
+     * @return Club
+     */
+    public function setChampionats($championats)
+    {
+        $this->championats = $championats;
+        return $this;
+    }
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getRankings()
+    {
+        return $this->rankings;
+    }
+
+    /**
+     * @param ArrayCollection $rankings
+     * @return Club
+     */
+    public function setRankings($rankings)
+    {
+        $this->rankings = $rankings;
+        return $this;
+    }
+
+
 
 
 }

@@ -35,7 +35,7 @@ class RankingBuilder
                 champ.player p
             join championat_player cp on cp.player_id = p.id 
             join championat c on c.id = cp.championat_id
-            where c.ranking_id = 1
+            where c.ranking_id = '.$ranking->getId().'
             group by p.id
             order by sum(cp.points) desc;
 

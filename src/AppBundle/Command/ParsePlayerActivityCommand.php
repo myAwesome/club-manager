@@ -19,7 +19,7 @@ class ParsePlayerActivityCommand extends ContainerAwareCommand
     {
         $this
             ->setName('acme_demo:parse_player')
-            ->setDescription('Hello PhpStorm');
+            ->setDescription('Just for fixtures');
     }
 
     /**

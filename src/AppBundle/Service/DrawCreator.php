@@ -25,8 +25,9 @@ class DrawCreator
     }
 
     /**
-     * Depend on draw size create number of matches
+     * Depending on draw size, create number of matches
      * @param Draw $draw
+     * @throws \Exception
      */
     public function createMatches(Draw $draw)
     {
