@@ -1,0 +1,198 @@
+AppBundle\Entity\City:
+    kiev:
+        name: "Kiev"
+
+AppBundle\Entity\Player:
+    federer:
+        backhand: 1
+        forehand: 'r'
+        lastName: 'Federer'
+        firstName: 'Roger'
+        city: '@kiev'
+    anderson:
+        backhand: 2
+        forehand: 'R'
+        lastName: 'Anderson'
+        firstName: 'Kevin'
+        city: '@kiev'
+    djokovic:
+        backhand: 2
+        forehand: 'r'
+        lastName: 'Djokovic'
+        firstName: 'Novak'
+        city: '@kiev'
+    cilic:
+        backhand: 2
+        forehand: 'r'
+        lastName: 'Cilic'
+        firstName: 'Marin'
+        city: '@kiev'
+    thiem:
+        backhand: 2
+        forehand: 'r'
+        lastName: 'Thiem'
+        firstName: 'Dominic'
+        city: '@kiev'
+    zverev:
+        backhand: 2
+        forehand: 'r'
+        lastName: 'Zverev'
+        firstName: 'Alex'
+        city: '@kiev'
+    nishikori:
+        backhand: 2
+        forehand: 'r'
+        lastName: 'Nishikori'
+        firstName: 'Kei'
+        city: '@kiev'
+    isner:
+        backhand: 2
+        forehand: 'r'
+        lastName: 'Isner'
+        firstName: 'John'
+        city: '@kiev'
+
+AppBundle\Entity\Club:
+    atp:
+        name: "Atp"
+        city: '@kiev'
+
+AppBundle\Entity\Ranking:
+    atp_single:
+        name: "atp_single"
+        club: "@atp"
+
+
+AppBundle\Entity\Championat:
+    masters:
+        name: "NITTO ATP FINALS"
+        type: "single"
+        startAt: <(new DateTime('10-11-2019'))>
+        endAt: <(new DateTime('19-11-2019'))>
+        description: "he Nitto ATP Finals is the year-end climax to the ATP Tour season."
+        club: "@atp"
+        ranking: "@atp_single"
+
+AppBundle\Entity\Group:
+    group_guga_kuerten:
+        name: "Group Guga Kuerten"
+        capacity: 4
+        championat: "@masters"
+        players:
+            - "@djokovic"
+            - "@zverev"
+            - "@cilic"
+            - "@isner"
+
+    group_lleyton_hewitt:
+        name: "Group Lleyton Hewitt"
+        capacity: 4
+        championat: "@masters"
+        players:
+            - "@federer"
+            - "@anderson"
+            - "@thiem"
+            - "@nishikori"
+
+AppBundle\Entity\Draw:
+    masters_playoff:
+        capacity: 4
+        championat: "@masters"
+
+
+AppBundle\Entity\Match:
+    ggkm1:
+        player1Points: 7
+        player2Points: 6
+        group: "@group_guga_kuerten"
+        player1: "@zverev"
+        player2: "@cilic"
+    ggkm2:
+        player1Points: 6
+        player2Points: 4
+        group: "@group_guga_kuerten"
+        player1: "@djokovic"
+        player2: "@isner"
+    ggkm3:
+        player1Points: 6
+        player2Points: 4
+        group: "@group_guga_kuerten"
+        player1: "@djokovic"
+        player2: "@zverev"
+    ggkm4:
+        player1Points: 6
+        player2Points: 3
+        group: "@group_guga_kuerten"
+        player1: "@cilic"
+        player2: "@isner"
+    ggkm5:
+        player1Points: 7
+        player2Points: 6
+        group: "@group_guga_kuerten"
+        player1: "@zverev"
+        player2: "@isner"
+    ggkm6:
+        player1Points: 7
+        player2Points: 6
+        group: "@group_guga_kuerten"
+        player1: "@djokovic"
+        player2: "@cilic"
+
+    glhm1:
+        player1Points: 6
+        player2Points: 3
+        group: "@group_lleyton_hewitt"
+        player1: "@anderson"
+        player2: "@thiem"
+
+    glhm2:
+        player1Points: 7
+        player2Points: 6
+        group: "@group_lleyton_hewitt"
+        player1: "@nishikori"
+        player2: "@federer"
+
+    glhm3:
+        player1Points: 6
+        player2Points: 0
+        group: "@group_lleyton_hewitt"
+        player1: "@anderson"
+        player2: "@nishikori"
+
+    glhm4:
+        player1Points: 6
+        player2Points: 2
+        group: "@group_lleyton_hewitt"
+        player1: "@federer"
+        player2: "@thiem"
+
+    glhm5:
+        player1Points: 6
+        player2Points: 1
+        group: "@group_lleyton_hewitt"
+        player1: "@thiem"
+        player2: "@nishikori"
+
+    glhm6:
+        player1Points: 6
+        player2Points: 4
+        group: "@group_lleyton_hewitt"
+        player1: "@federer"
+        player2: "@anderson"
+
+    mposemi1:
+        player1Points: 6
+        player2Points: 2
+        player1: "@djokovic"
+        player2: "@anderson"
+    mposemi2:
+        player1Points: 7
+        player2Points: 5
+        player1: "@zverev"
+        player2: "@federer"
+    mpofinal:
+        player1Points: 6
+        player2Points: 4
+        player1: "@zverev"
+        player2: "@djokovic"
+

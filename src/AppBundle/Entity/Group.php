@@ -14,8 +14,6 @@ use GetSetGo\SetterGetter;
  */
 class Group
 {
-    use SetterGetter;
-
 
     /**
      * @var integer
