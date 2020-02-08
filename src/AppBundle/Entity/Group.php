@@ -11,6 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="_group")
  * @ORM\Entity
+ * @ApiResource
  */
 class Group
 {

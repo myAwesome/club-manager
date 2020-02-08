@@ -9,6 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Table(name="championat")
  * @ORM\Entity
+ * @ApiResource
  */
 class Championat
 {

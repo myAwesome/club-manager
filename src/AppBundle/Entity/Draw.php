@@ -11,6 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="draw")
  * @ORM\Entity
+ * @ApiResource
  */
 class Draw
 {

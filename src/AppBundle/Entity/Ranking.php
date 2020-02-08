@@ -9,6 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="ranking")
  * @ORM\Entity
+ * @ApiResource
  */
 class Ranking
 {

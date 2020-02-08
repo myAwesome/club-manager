@@ -10,6 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="_match")
  * @ORM\Entity(repositoryClass="AppBundle\Entity\Repository\MatchRepository")
+ * @ApiResource
  */
 class Match
 {

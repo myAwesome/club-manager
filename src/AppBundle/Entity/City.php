@@ -10,6 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="city")
  * @ORM\Entity
+ * @ApiResource
  */
 class City
 {

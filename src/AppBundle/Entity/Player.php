@@ -10,6 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="player", indexes={@ORM\Index(name="fk_player_city1_idx", columns={"city_id"})})
  * @ORM\Entity
+ * @ApiResource
  */
 class Player
 {
@@ -20,6 +21,7 @@ class Player
      * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
+     *
      */
     private $id;
 
